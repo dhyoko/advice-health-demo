@@ -1,15 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import { RouterProvider } from "react-router-dom";
 import "./index.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Header, MainContainer } from "./components";
+import router from "./router";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <Header />
-    <MainContainer>
-      <p>Hello World!</p>
-    </MainContainer>
+    <RouterProvider router={router} />
   </React.StrictMode>
 );

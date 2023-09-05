@@ -1,4 +1,4 @@
 import Header from "../components/header";
-import MainContainer from "../components/mainContainer";
+import Layout from "./layout";
 
-export { Header, MainContainer };
+export { Header, Layout };

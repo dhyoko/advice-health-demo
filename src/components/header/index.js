@@ -1,10 +1,12 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Container, Nav, Navbar, Offcanvas } from "react-bootstrap";
 import adviceHealthLogo from "../../assets/logo_advice_150.png";
 import user_portrait_mock from "../../assets/john_doe_mock.jfif";
 import { HEADER_BREAKPOINT } from "../utils";
 import { USER_NAME } from "../../mocks/user";
 import { NavWrapper, ImageWrapper } from "./style";
+import { PATHS } from "../../utils/paths";
 
 const Header = () => {
   return (
@@ -29,8 +31,15 @@ const Header = () => {
           >
             <Offcanvas.Body>
               <Nav>
-                <Nav.Link href="#">Dashboard</Nav.Link>
-                <Nav.Link href="#">Agendamentos</Nav.Link>
+                <Nav.Item>
+                  <Link to={PATHS.DASHBOARD}>Dashboard</Link>
+                </Nav.Item>
+                <Nav.Item>
+                  <Link to={PATHS.SCHEDULING}>Agendamentos</Link>
+                </Nav.Item>
+                <Nav.Item>
+                  <Link to={PATHS.APPOINTMENTS}>Consultas</Link>
+                </Nav.Item>
               </Nav>
               <Nav className="justify-content-end flex-grow-1 pe-3">
                 <Navbar.Text>

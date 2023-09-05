@@ -5,6 +5,8 @@ export const COLORS = {
   DARK_CYAN: "#04949d",
   LIGH_GRAY: "#ddD",
   WHITE: "#fff",
+  SOFT_BLACK: "#000000a6",
+  SOFT_BLACK_HOVER: "#000000CC",
 };
 
 export const LAYOUT_SIZES = {
