@@ -10,5 +10,6 @@ export const NavWrapper = styled.div`
 
 export const ImageWrapper = styled.img`
   height: 35px;
+  width: 35px;
   margin: 0 10px 0 20px;
 `;

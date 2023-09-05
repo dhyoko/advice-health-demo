@@ -33,11 +33,14 @@ const Header = () => {
                 <Nav.Link href="#">Agendamentos</Nav.Link>
               </Nav>
               <Nav className="justify-content-end flex-grow-1 pe-3">
-                <Navbar.Text>{USER_NAME}</Navbar.Text>
-                <ImageWrapper
-                  className="rounded-circle"
-                  src={user_portrait_mock}
-                />
+                <Navbar.Text>
+                  {USER_NAME}{" "}
+                  <ImageWrapper
+                    className="rounded-circle"
+                    src={user_portrait_mock}
+                  />
+                </Navbar.Text>
+
                 <Nav.Link href="#">Sair</Nav.Link>
               </Nav>
             </Offcanvas.Body>
