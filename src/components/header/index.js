@@ -1,14 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Container, Nav, Navbar, Offcanvas } from "react-bootstrap";
+import { get } from "lodash";
 import adviceHealthLogo from "../../assets/logo_advice_150.png";
-import user_portrait_mock from "../../assets/john_doe_mock.jfif";
 import { HEADER_BREAKPOINT } from "../utils";
-import { USER_NAME } from "../../mocks/user";
+import { user } from "../../mocks/user";
 import { NavWrapper, ImageWrapper } from "./style";
 import { PATHS } from "../../utils/paths";
 
 const Header = () => {
+  const userName = get(user, "name", "");
+  const portrait = get(user, "portrait", "");
+
   return (
     <NavWrapper>
       <Navbar
@@ -43,11 +46,8 @@ const Header = () => {
               </Nav>
               <Nav className="justify-content-end flex-grow-1 pe-3">
                 <Navbar.Text>
-                  {USER_NAME}{" "}
-                  <ImageWrapper
-                    className="rounded-circle"
-                    src={user_portrait_mock}
-                  />
+                  {userName}
+                  <ImageWrapper className="rounded-circle" src={portrait} />
                 </Navbar.Text>
 
                 <Nav.Link href="#">Sair</Nav.Link>
