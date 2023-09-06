@@ -7,6 +7,9 @@ export const COLORS = {
   WHITE: "#fff",
   SOFT_BLACK: "#000000a6",
   SOFT_BLACK_HOVER: "#000000CC",
+  GRAY: "#999",
+  DARK_GRAY: "#333",
+  LIGHT_GRAY: "#ffffff4d",
 };
 
 export const LAYOUT_SIZES = {
