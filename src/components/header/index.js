@@ -41,13 +41,8 @@ const Header = () => {
           <Navbar.Brand href="#">
             <img src={adviceHealthLogo} alt="Logo"></img>
           </Navbar.Brand>
-          <Navbar.Toggle
-            onClick={toggleMenu}
-            // aria-controls={`offcanvasNavbar-expand-${HEADER_BREAKPOINT}`}
-          />
+          <Navbar.Toggle onClick={toggleMenu} />
           <Navbar.Offcanvas
-            // id={`offcanvasNavbar-expand-${HEADER_BREAKPOINT}`}
-            // aria-labelledby={`offcanvasNavbarLabel-expand-${HEADER_BREAKPOINT}`}
             placement="end"
             show={showOffcanvasMenu}
             onHide={toggleMenu}
