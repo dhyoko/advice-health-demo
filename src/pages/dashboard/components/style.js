@@ -6,3 +6,19 @@ export const TooltipWrapper = styled.div`
   color: ${COLORS.SOFT_BLACK};
   background: ${COLORS.WHITE};
 `;
+
+export const AppointmentCardWrapper = styled.div`
+  display: flex;
+  align-items: center;
+
+  img {
+    height: 35px;
+    width: 35px;
+  }
+
+  .card-info {
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+  }
+`;

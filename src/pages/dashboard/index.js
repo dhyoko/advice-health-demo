@@ -7,6 +7,7 @@ import {
   AppointmentPieChart,
   ServicesBarChart,
   AppointmentsCalendar,
+  AppointmentsCardList,
 } from "./components";
 import { CardWrapper, CalendarWrapper } from "./style";
 
@@ -17,7 +18,7 @@ const Dashboard = () => {
     <Layout title="Dashboard">
       <Row>
         <Col
-          lg={{
+          xl={{
             span: 8,
             order: 1,
           }}
@@ -27,32 +28,14 @@ const Dashboard = () => {
           }}
         >
           <Row>
-            <Col
-              lg={{
-                span: 5,
-                order: 1,
-              }}
-              xs={{
-                span: 12,
-                order: 2,
-              }}
-            >
+            <Col xl={5} xs={12}>
               <CardWrapper>
                 <InfoCard title={`Agendamentos ${now}`}>
                   <AppointmentPieChart appointments={appointmentsMock} />
                 </InfoCard>
               </CardWrapper>
             </Col>
-            <Col
-              lg={{
-                span: 7,
-                order: 1,
-              }}
-              xs={{
-                span: 12,
-                order: 3,
-              }}
-            >
+            <Col xl={7} xs={12}>
               <CardWrapper>
                 <InfoCard title={`Serviços ${now}`}>
                   <ServicesBarChart appointments={appointmentsMock} />
@@ -62,7 +45,7 @@ const Dashboard = () => {
           </Row>
         </Col>
         <Col
-          lg={{
+          xl={{
             span: 4,
             order: 2,
           }}
@@ -74,6 +57,8 @@ const Dashboard = () => {
           <CalendarWrapper>
             <AppointmentsCalendar />
           </CalendarWrapper>
+          <h5>Próximos atendimentos: </h5>
+          <AppointmentsCardList appointments={appointmentsMock} />
         </Col>
       </Row>
     </Layout>
