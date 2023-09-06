@@ -25,6 +25,25 @@ export const NavWrapper = styled.div`
   }
 `;
 
+export const OffcanvasWrapper = styled.div`
+  .navbar-nav {
+    align-items: flex-start;
+
+    .nav-item {
+      margin-right: 20px;
+
+      a {
+        color: ${COLORS.SOFT_BLACK};
+        text-decoration: none;
+
+        &:hover {
+          color: ${COLORS.SOFT_BLACK_HOVER};
+        }
+      }
+    }
+  }
+`;
+
 export const ImageWrapper = styled.img`
   height: 35px;
   width: 35px;
