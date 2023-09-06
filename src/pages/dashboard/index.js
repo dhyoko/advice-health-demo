@@ -9,6 +9,7 @@ import {
   AppointmentsCalendar,
   AppointmentsCardList,
   BillingCard,
+  ReminderCard,
 } from "./components";
 import { CardWrapper, CalendarWrapper } from "./style";
 
@@ -46,7 +47,7 @@ const Dashboard = () => {
           </Row>
           <Row className="mb-3">
             <Col xl={7} xs={12}>
-              <InfoCard title="Lembretes"></InfoCard>
+              <ReminderCard />
             </Col>
             <Col xl={5} xs={12}>
               <InfoCard title="Faturamento">

@@ -37,3 +37,14 @@ export const BillingCardWrapper = styled.div`
     font-size: 60px;
   }
 `;
+
+export const ReminderCardWrapper = styled.div`
+  .card-title {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .reminder-list {
+    margin-top: 20px;
+  }
+`;

@@ -4,3 +4,5 @@ export const user = {
   name: "John Doe",
   portrait: userPortrait,
 };
+
+export const reminders = [];
