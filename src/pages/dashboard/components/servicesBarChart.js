@@ -1,5 +1,5 @@
 import React from "react";
-import { get } from "lodash";
+import { get, maxBy } from "lodash";
 import { BarChart } from "../../../components";
 import { filterAppointmentsByDay, mapAppointmentsByServices } from "../utils";
 import { TooltipWrapper } from "./style";
@@ -20,15 +20,23 @@ const ServicesBarChart = (props) => {
   const now = new Date();
 
   const filteredAppointments = filterAppointmentsByDay(appointments, now);
+  const mappedAppointmentsByServices =
+    mapAppointmentsByServices(filteredAppointments);
+
+  const maxValue = get(maxBy(mappedAppointmentsByServices, "value"), "value");
+  const axisBottomTickValues = Array(maxValue + 1)
+    .fill()
+    .map((_, i) => i);
 
   return (
     <BarChart
-      data={mapAppointmentsByServices(filteredAppointments)}
+      data={mappedAppointmentsByServices}
       keys={["value"]}
       aaxisLeftLabel="Número de consultas"
       axisBottomLabel="Serviço"
       horizontal
       customTooltip={customTooltip}
+      axisBottomTickValues={axisBottomTickValues}
     />
   );
 };

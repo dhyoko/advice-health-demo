@@ -16,6 +16,7 @@ const BarChart = (props) => {
     axisBottomLabel,
     horizontal = false,
     customTooltip,
+    axisBottomTickValues,
   } = props;
 
   return (
@@ -31,6 +32,7 @@ const BarChart = (props) => {
         legend: axisBottomLabel,
         legendOffset: 32,
         ...defaultAxisSetting,
+        tickValues: axisBottomTickValues,
       }}
       axisLeft={{
         legend: axisLeftLabel,
