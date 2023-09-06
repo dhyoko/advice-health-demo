@@ -2,8 +2,17 @@ import React from "react";
 import { ResponsivePie } from "@nivo/pie";
 import { COLORS } from "../../utils/consts";
 
+/*
+For this chart data parameter has to be an Array with the following object:
+  {
+    id: string | number,
+    label: string,
+    value: number
+  }
+*/
+
 const PieChart = (props) => {
-  const { data, total } = props;
+  const { data, total, customColors = false } = props;
 
   const CenteredMetric = ({ centerX, centerY }) => {
     if (!total) {
@@ -34,7 +43,7 @@ const PieChart = (props) => {
       padAngle={0.7}
       cornerRadius={3}
       activeOuterRadiusOffset={20}
-      colors={{ scheme: "blues" }}
+      colors={customColors ? { datum: "data.color" } : { scheme: "blues" }}
       borderWidth={1}
       borderColor={{ from: "color", modifiers: [["darker", 0.7]] }}
       arcLinkLabelsSkipAngle={10}
