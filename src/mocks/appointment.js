@@ -1,4 +1,3 @@
-import { compareDesc } from "date-fns";
 import {
   cristinaLopesProfile,
   eduardoOlivaProfile,
@@ -15,76 +14,114 @@ import {
   brainMapping,
   clinicalNeurophysiology,
 } from "./services";
+import {
+  DATE_ACTION,
+  formatDateToISO,
+  manipulateDate,
+  mapAppointments,
+} from "./utils";
 
-export const appointments = [
+const now = new Date();
+
+const appointments = [
   {
-    id: 1,
     doctor: cristinaLopesProfile,
-    appointmentDate: "2023-09-05 00:T09:00:00-03:00",
+    appointmentDate: manipulateDate(now, 2, DATE_ACTION.SUBTRACT),
+    appointmentTime: "16:30:00",
+    requestedServices: [clinicalMedicalConsultation],
+  },
+  {
+    doctor: eduardoOlivaProfile,
+    appointmentDate: manipulateDate(now, 1, DATE_ACTION.SUBTRACT),
+    appointmentTime: "10:30:00",
+    requestedServices: [clinicalMedicalConsultation],
+  },
+  {
+    doctor: michelAntonioProfile,
+    appointmentDate: manipulateDate(now, 1, DATE_ACTION.SUBTRACT),
+    appointmentTime: "09:30:00",
+    requestedServices: [neurologyConsultation],
+  },
+  {
+    doctor: cristinaLopesProfile,
+    appointmentDate: formatDateToISO(now),
+    appointmentTime: "09:00:00",
     requestedServices: [cardiologyConsultation],
-    completed: true,
   },
   {
-    id: 2,
     doctor: cristinaLopesProfile,
-    appointmentDate: "2023-09-05 00:T16:30:00-03:00",
+    appointmentDate: formatDateToISO(now),
+    appointmentTime: "16:30:00",
     requestedServices: [clinicalMedicalConsultation],
-    completed: false,
   },
   {
-    id: 3,
     doctor: cristinaLopesProfile,
-    appointmentDate: "2023-09-05 00:T10:00:00-03:00",
+    appointmentDate: manipulateDate(now, 5, DATE_ACTION.ADD),
+    appointmentTime: "16:30:00",
+    requestedServices: [clinicalMedicalConsultation],
+  },
+  {
+    doctor: cristinaLopesProfile,
+    appointmentDate: formatDateToISO(now),
+    appointmentTime: "10:00:00",
     requestedServices: [electrocardiogram],
-    completed: false,
   },
   {
-    id: 4,
     doctor: eduardoOlivaProfile,
-    appointmentDate: "2023-09-05 00:T09:00:00-03:00",
+    appointmentDate: formatDateToISO(now),
+    appointmentTime: "09:00:00",
     requestedServices: [pulmonologyConsultation, pulmonaryFunctionTest],
-    completed: true,
   },
   {
-    id: 5,
     doctor: eduardoOlivaProfile,
-    appointmentDate: "2023-09-05 00:T10:30:00-03:00",
+    appointmentDate: formatDateToISO(now),
+    appointmentTime: "10:30:00",
     requestedServices: [clinicalMedicalConsultation],
-    completed: false,
   },
   {
-    id: 6,
     doctor: eduardoOlivaProfile,
-    appointmentDate: "2023-09-05 00:T11:00:00-03:00",
+    appointmentDate: manipulateDate(now, 2, DATE_ACTION.ADD),
+    appointmentTime: "10:30:00",
     requestedServices: [clinicalMedicalConsultation],
-    completed: false,
   },
   {
-    id: 7,
+    doctor: eduardoOlivaProfile,
+    appointmentDate: formatDateToISO(now),
+    appointmentTime: "11:00:00",
+    requestedServices: [clinicalMedicalConsultation],
+  },
+  {
     doctor: michelAntonioProfile,
-    appointmentDate: "2023-09-05 00:T09:30:00-03:00",
+    appointmentDate: formatDateToISO(now),
+    appointmentTime: "09:30:00",
     requestedServices: [neurologyConsultation],
-    completed: true,
   },
   {
-    id: 8,
     doctor: michelAntonioProfile,
-    appointmentDate: "2023-09-05 00:T15:30:00-03:00",
+    appointmentDate: formatDateToISO(now),
+    appointmentTime: "15:00:00",
     requestedServices: [brainMapping, clinicalNeurophysiology],
-    completed: false,
   },
   {
-    id: 9,
     doctor: michelAntonioProfile,
-    appointmentDate: "2023-09-05 00:T11:30:00-03:00",
+    appointmentDate: formatDateToISO(now),
+    appointmentTime: "11:30:00",
     requestedServices: [neurologyConsultation],
-    completed: false,
   },
   {
-    id: 10,
     doctor: michelAntonioProfile,
-    appointmentDate: "2023-09-05 00:T10:30:00-03:00",
-    requestedServices: [electroencephalography],
-    completed: false,
+    appointmentDate: manipulateDate(now, 17, DATE_ACTION.ADD),
+    appointmentTime: "11:30:00",
+    requestedServices: [neurologyConsultation],
   },
-].sort((a, b) => compareDesc(a.appointmentDate, b.appointmentDate));
+  {
+    doctor: michelAntonioProfile,
+    appointmentDate: formatDateToISO(now),
+    appointmentTime: "10:30:00",
+    requestedServices: [electroencephalography],
+  },
+];
+
+const mappedAppointments = mapAppointments(appointments, now);
+
+export default mappedAppointments;
