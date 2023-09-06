@@ -10,7 +10,7 @@ export const NavWrapper = styled.div`
       align-items: center;
 
       .nav-item {
-        margin-right: 10px;
+        margin-right: 20px;
 
         a {
           color: ${COLORS.SOFT_BLACK};
