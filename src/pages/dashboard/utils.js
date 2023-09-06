@@ -1,4 +1,5 @@
-import { get, filter } from "lodash";
+import { get, filter, map, flatMap, groupBy } from "lodash";
+import { isSameDay, parseISO } from "date-fns";
 import { COLORS } from "../../utils/consts";
 
 export const mapAppointmentsData = (appointments) => {
@@ -20,4 +21,24 @@ export const mapAppointmentsData = (appointments) => {
       color: COLORS.DARK_ORANGE,
     },
   ];
+};
+
+export const filterAppointmentsByDay = (appointments, day) => {
+  return filter(appointments, (appointment) =>
+    isSameDay(parseISO(get(appointment, "appointmentDate")), day)
+  );
+};
+
+export const mapAppointmentsByServices = (appointments) => {
+  const requestedServices = flatMap(
+    map(appointments, (appointment) => get(appointment, "requestedServices"))
+  );
+  const groupServicesById = groupBy(requestedServices, "id");
+
+  return map(groupServicesById, (services) => {
+    return {
+      id: get(services, "[0].name"),
+      value: get(services, "length"),
+    };
+  }).sort((a, b) => a.value - b.value);
 };

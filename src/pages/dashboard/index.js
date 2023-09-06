@@ -4,7 +4,8 @@ import { formatISO } from "date-fns";
 import { Layout, InfoCard } from "../../components";
 import appointmentsMock from "../../mocks/appointment";
 import AppointmentPieChart from "./components/appointmentsPieChart";
-import { AppointmentCardWrapper } from "./style";
+import ServicesBarChart from "./components/servicesBarChart";
+import { CardWrapper } from "./style";
 
 const Dashboard = () => {
   const now = formatISO(new Date(), { representation: "date" });
@@ -22,11 +23,11 @@ const Dashboard = () => {
             order: 2,
           }}
         >
-          <AppointmentCardWrapper>
+          <CardWrapper>
             <InfoCard title={`Agendamentos ${now}`}>
               <AppointmentPieChart appointments={appointmentsMock} />
             </InfoCard>
-          </AppointmentCardWrapper>
+          </CardWrapper>
         </Col>
         <Col
           lg={{
@@ -38,7 +39,11 @@ const Dashboard = () => {
             order: 3,
           }}
         >
-          <InfoCard title="Agendamento"></InfoCard>
+          <CardWrapper>
+            <InfoCard title="Serviços">
+              <ServicesBarChart appointments={appointmentsMock} />
+            </InfoCard>
+          </CardWrapper>
         </Col>
         <Col
           lg={{

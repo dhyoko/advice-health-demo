@@ -1,16 +1,12 @@
 import React from "react";
 import { PieChart } from "../../../components";
-import { isSameDay, parseISO } from "date-fns";
-import { get, filter } from "lodash";
-import { mapAppointmentsData } from "../utils";
+import { get } from "lodash";
+import { mapAppointmentsData, filterAppointmentsByDay } from "../utils";
 
 const AppointmentPieChart = (props) => {
   const appointments = get(props, "appointments", []);
   const now = new Date();
-
-  const filteredAppointments = filter(appointments, (appointment) =>
-    isSameDay(parseISO(get(appointment, "appointmentDate")), now)
-  );
+  const filteredAppointments = filterAppointmentsByDay(appointments, now);
 
   return (
     <PieChart
