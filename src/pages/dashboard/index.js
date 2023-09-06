@@ -3,9 +3,12 @@ import { Row, Col } from "react-bootstrap";
 import { formatISO } from "date-fns";
 import { Layout, InfoCard } from "../../components";
 import appointmentsMock from "../../mocks/appointment";
-import AppointmentPieChart from "./components/appointmentsPieChart";
-import ServicesBarChart from "./components/servicesBarChart";
-import { CardWrapper } from "./style";
+import {
+  AppointmentPieChart,
+  ServicesBarChart,
+  AppointmentsCalendar,
+} from "./components";
+import { CardWrapper, CalendarWrapper } from "./style";
 
 const Dashboard = () => {
   const now = formatISO(new Date(), { representation: "date" });
@@ -15,7 +18,7 @@ const Dashboard = () => {
       <Row>
         <Col
           lg={{
-            span: 3,
+            span: 8,
             order: 1,
           }}
           xs={{
@@ -23,27 +26,40 @@ const Dashboard = () => {
             order: 2,
           }}
         >
-          <CardWrapper>
-            <InfoCard title={`Agendamentos ${now}`}>
-              <AppointmentPieChart appointments={appointmentsMock} />
-            </InfoCard>
-          </CardWrapper>
-        </Col>
-        <Col
-          lg={{
-            span: 5,
-            order: 1,
-          }}
-          xs={{
-            span: 12,
-            order: 3,
-          }}
-        >
-          <CardWrapper>
-            <InfoCard title="Serviços">
-              <ServicesBarChart appointments={appointmentsMock} />
-            </InfoCard>
-          </CardWrapper>
+          <Row>
+            <Col
+              lg={{
+                span: 5,
+                order: 1,
+              }}
+              xs={{
+                span: 12,
+                order: 2,
+              }}
+            >
+              <CardWrapper>
+                <InfoCard title={`Agendamentos ${now}`}>
+                  <AppointmentPieChart appointments={appointmentsMock} />
+                </InfoCard>
+              </CardWrapper>
+            </Col>
+            <Col
+              lg={{
+                span: 7,
+                order: 1,
+              }}
+              xs={{
+                span: 12,
+                order: 3,
+              }}
+            >
+              <CardWrapper>
+                <InfoCard title={`Serviços ${now}`}>
+                  <ServicesBarChart appointments={appointmentsMock} />
+                </InfoCard>
+              </CardWrapper>
+            </Col>
+          </Row>
         </Col>
         <Col
           lg={{
@@ -55,7 +71,9 @@ const Dashboard = () => {
             order: 1,
           }}
         >
-          <InfoCard title="Teste 2"></InfoCard>
+          <CalendarWrapper>
+            <AppointmentsCalendar />
+          </CalendarWrapper>
         </Col>
       </Row>
     </Layout>

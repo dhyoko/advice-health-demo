@@ -7,5 +7,6 @@ export const ContainerWrapper = styled.div`
 
   .page-title {
     color: ${COLORS.SOFT_BLACK};
+    margin: 40px 0;
   }
 `;
