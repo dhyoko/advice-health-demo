@@ -22,3 +22,18 @@ export const AppointmentCardWrapper = styled.div`
     margin-left: 20px;
   }
 `;
+
+export const BillingCardWrapper = styled.div`
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 10px;
+
+  h5 {
+    margin-right: 15px;
+  }
+
+  h1 {
+    font-size: 60px;
+  }
+`;
