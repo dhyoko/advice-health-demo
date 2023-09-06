@@ -5,6 +5,7 @@ import { filterAppointmentsByDay } from "../utils";
 import { AppointmentCardWrapper } from "./style";
 
 const SimpleAppointmentCard = (props) => {
+  const doctorName = get(props, "appointment.doctor.name");
   const doctorPortrait = get(props, "appointment.doctor.portrait");
   const appointmentDate = get(props, "appointment.appointmentDate");
   const appointmenttime = get(props, "appointment.appointmentTime");
@@ -15,6 +16,7 @@ const SimpleAppointmentCard = (props) => {
       <AppointmentCardWrapper>
         <img className="rounded-circle" src={doctorPortrait} alt="logo" />
         <div className="card-info">
+          <span>{`Dr(a). ${doctorName}`}</span>
           <span>{`Paciente: ${patientName}`}</span>
           <span>{`${appointmentDate} ${appointmenttime}`}</span>
         </div>
