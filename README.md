@@ -8,7 +8,7 @@ Create an App for a doctor's office.
 
 ## Preview
 
-![image](https://github.com/dhyoko/advice-health-demo/assets/42620936/e98a2759-8ad3-4aa6-9e19-80e2a22ffb98)
+![image](https://github.com/dhyoko/advice-health-demo/assets/42620936/a2d6e6fb-867d-4c32-bf2f-8597afed339b)
 
 ## Available Scripts
 
